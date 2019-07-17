@@ -21,8 +21,8 @@ export default function Media({mediaUrl, mediaType}){
     else {
         return(
             <div className='media'>
-                {/* No media type found */}
-                <iframe src='https://www.youtube.com/embed/xc1SzgGhMKc?start=850'/>
+                No media type found
+                {/* <iframe src='https://www.youtube.com/embed/xc1SzgGhMKc?start=850'/> */}
             </div>
         )
     }

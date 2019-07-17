@@ -9,16 +9,21 @@ import Text from "./components/Text";
 
 function App() {
   const [apod, setApod] = useState([]);
+  const [apiDate, setApiDate] = useState('2019-07-15');
+  const [inputDate, setInputDate] = useState('');
   const apiKey = process.env.REACT_APP_NASA_API_KEY;
-  console.log(apiKey)
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
-  //     .then(response => {
-  //       setApod(response.data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${apiDate}`)
+      .then(response => {
+        setApod(response.data);
+      })
+  }, [apiDate]);
+
+  function handleDateChange(event) {
+    setInputDate(event.target.value)
+  }
 
   return (
     <div className="App">
@@ -27,7 +32,8 @@ function App() {
         <Media mediaUrl = {apod.url} mediaType = {apod.media_type} ></Media>
         <Text explanation = {apod.explanation} date = {apod.date} copyright = {apod.copyright} />
       </div>
-      {/* <input type='date'></input> */}
+      <input className='input' type='date' onChange= {handleDateChange}></input>
+      <button className='button' onClick = {() => setApiDate(inputDate)}>Submit</button>
     </div>
   );
 }
