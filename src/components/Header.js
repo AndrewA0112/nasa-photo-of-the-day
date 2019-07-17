@@ -2,8 +2,9 @@ import React from 'react'
 
 export default function Header({title}){
     return(
-        <div>
+        <div className='header'>
             {title}
+            Title
         </div>
     )
     
