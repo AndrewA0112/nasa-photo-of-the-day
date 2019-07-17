@@ -27,10 +27,19 @@ function App() {
 
   return (
     <div className="App">
-      <Header title = {apod.title}></Header>
+      <Header
+        title={apod.title}
+      />
       <div className='content'>
-        <Media mediaUrl = {apod.url} mediaType = {apod.media_type} ></Media>
-        <Text explanation = {apod.explanation} date = {apod.date} copyright = {apod.copyright} />
+        <Media
+          mediaUrl={apod.url}
+          mediaType={apod.media_type} 
+        />
+        <Text
+          explanation={apod.explanation}
+          date={apod.date}
+          copyright={apod.copyright}
+        />
       </div>
       <input className='input' type='date' onChange= {handleDateChange}></input>
       <button className='button' onClick = {() => setApiDate(inputDate)}>Submit</button>
